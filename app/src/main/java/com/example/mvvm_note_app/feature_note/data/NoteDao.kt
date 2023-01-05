@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface NoteDao {
 
     @Query("SELECT * FROM note_entity")
-    fun getNote(): Flow<List<Note>>
+    fun getNotes(): Flow<List<Note>>
 
     @Delete
     suspend fun deleteNote(note: Note)
