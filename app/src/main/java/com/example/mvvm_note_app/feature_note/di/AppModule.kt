@@ -2,9 +2,11 @@ package com.example.mvvm_note_app.feature_note.di
 
 import android.app.Application
 import androidx.room.Room
+import com.example.mvvm_note_app.core.util.Constant.NOTE_DATABASE
 import com.example.mvvm_note_app.feature_note.data.NoteDatabase
 import com.example.mvvm_note_app.feature_note.data.NoteRepositoryImpl
 import com.example.mvvm_note_app.feature_note.domain.NoteRepository
+import com.example.mvvm_note_app.feature_note.domain.use_cases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +23,7 @@ object AppModule {
         return Room.databaseBuilder(
             app,
             NoteDatabase::class.java,
-            "note_database"
+            NOTE_DATABASE
         ).build()
     }
 
@@ -29,5 +31,16 @@ object AppModule {
     @Singleton
     fun provideRepository(db: NoteDatabase): NoteRepository {
         return NoteRepositoryImpl(db.dao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNoteUseCases(noteRepository: NoteRepository): NoteUseCases {
+        return NoteUseCases(
+            getNotes = GetNotes(noteRepository),
+            getNote = GetNote(noteRepository),
+            addNotes = AddNote(noteRepository),
+            deleteNotes = DeleteNotes(noteRepository)
+        )
     }
 }
