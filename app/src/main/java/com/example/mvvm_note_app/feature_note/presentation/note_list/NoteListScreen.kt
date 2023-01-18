@@ -35,6 +35,7 @@ fun AddNoteScreen(
     val scope = rememberCoroutineScope()
 
     Scaffold(
+        snackbarHost = { SnackbarHost(snackBarHostState) },
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {},
@@ -46,7 +47,6 @@ fun AddNoteScreen(
                 )
             }
         },
-        snackbarHost = { SnackbarHost(snackBarHostState) },
     ) {
         Column(
             modifier = Modifier
