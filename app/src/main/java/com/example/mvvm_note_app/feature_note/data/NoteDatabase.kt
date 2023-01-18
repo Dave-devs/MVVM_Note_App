@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
-    entities = [ContactsContract.CommonDataKinds.Note::class],
+    entities = [Note::class],
     version = 1,
     exportSchema = false
 )
