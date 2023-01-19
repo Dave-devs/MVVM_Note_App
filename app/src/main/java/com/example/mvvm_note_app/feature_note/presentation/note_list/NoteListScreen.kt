@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.mvvm_note_app.feature_note.domain.util.Routes
 import com.example.mvvm_note_app.feature_note.presentation.note_list.component.NoteItem
 import com.example.mvvm_note_app.feature_note.presentation.note_list.component.OrderSection
 import kotlinx.coroutines.launch
@@ -38,7 +39,7 @@ fun AddNoteScreen(
         snackbarHost = { SnackbarHost(snackBarHostState) },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {},
+                onClick = { navController.navigate(Routes.ADD_EDIT_NOTE_SCREEN)},
                 Modifier.background(color = MaterialTheme.colorScheme.primary)
             ) {
                 Icon(

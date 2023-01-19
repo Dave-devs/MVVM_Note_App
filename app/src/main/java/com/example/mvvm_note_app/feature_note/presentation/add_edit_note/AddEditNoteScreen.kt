@@ -11,7 +11,6 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -32,7 +31,7 @@ fun AddEditNoteScreen(
     val contentState = viewModel.noteContent.value
 
     val snackBarHostState = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
+    //val scope = rememberCoroutineScope()
 
     val noteBackgroundAnimate = remember {
         Animatable(
@@ -93,15 +92,15 @@ fun AddEditNoteScreen(
             )
             Spacer(modifier = Modifier.height(16.dp))
             TransparentHintTextField(
-                text = titleState.text,
-                hint = titleState.hint,
+                text = contentState.text,
+                hint = contentState.hint,
                 onValueChange = {
                     viewModel.onEvent(AddEditNoteEvent.OnContentChange(it))
                 },
                 onFocusChange = {
                     viewModel.onEvent(AddEditNoteEvent.OnContentFocus(it))
                 },
-                isHintVisible = titleState.isHintVisible,
+                isHintVisible = contentState.isHintVisible,
                 singleLine = true,
                 textStyle = MaterialTheme.typography.headlineMedium
             )

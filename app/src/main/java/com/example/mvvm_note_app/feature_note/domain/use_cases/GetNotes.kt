@@ -28,9 +28,6 @@ class GetNotes(private val noteRepository: NoteRepository) {
                         is NoteOrder.Color -> notes.sortedByDescending { it.color }
                     }
                 }
-                else -> {
-                    return@map emptyList()
-                }
             }
         }
     }
