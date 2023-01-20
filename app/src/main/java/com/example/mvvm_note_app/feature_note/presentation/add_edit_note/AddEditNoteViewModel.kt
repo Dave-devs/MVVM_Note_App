@@ -14,17 +14,16 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
 @HiltViewModel
 class AddEditNoteViewModel @Inject constructor(
     private val noteUseCases: NoteUseCases,
     savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
-    private val _noteTitle = mutableStateOf(AddEditNoteState(hint = "Title"))
+    private val _noteTitle = mutableStateOf(AddEditNoteState(hint = "Enter title"))
     val noteTitle: State<AddEditNoteState> = _noteTitle
 
-    private val _noteContent = mutableStateOf(AddEditNoteState(hint = "Enter your note..."))
+    private val _noteContent = mutableStateOf(AddEditNoteState(hint = "Enter your content"))
     val noteContent: State<AddEditNoteState> = _noteContent
 
     private val _noteColor = mutableStateOf(Note.noteColors.random().toArgb())
@@ -35,7 +34,7 @@ class AddEditNoteViewModel @Inject constructor(
 
     private var currentNoteId: Int? = null
 
-    init {
+    init{
         savedStateHandle.get<Int>("noteId")?.let { noteId ->
             if(noteId != -1) {
                 viewModelScope.launch {
@@ -98,7 +97,7 @@ class AddEditNoteViewModel @Inject constructor(
                         _eventFlow.emit(UiEvent.SaveNote)
                     } catch (e: InvalidNoteException) {
                         _eventFlow.emit(UiEvent.ShowSnackBar(
-                            message = "Unable to save note."
+                            message = e.message ?: "Unable to save note."
                         ))
                     }
                 }
