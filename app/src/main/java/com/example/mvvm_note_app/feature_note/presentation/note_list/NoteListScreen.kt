@@ -48,6 +48,7 @@ fun AddNoteScreen(
                 )
             }
         },
+        floatingActionButtonPosition = FabPosition.End
     ) {
         Column(
             modifier = Modifier
