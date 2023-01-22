@@ -27,6 +27,7 @@ class NoteListViewModel @Inject constructor(
 
     private var getNoteJob: Job? = null
 
+    //Initialize how the note order should be in the screen by data descending.
     init {
         getNotes(NoteOrder.Date(OrderType.Descending))
     }
@@ -40,6 +41,7 @@ class NoteListViewModel @Inject constructor(
                 }
                 getNotes(events.noteOrder)
             }
+            //We get the delete note function from deleteNote useCase class then launch it in viewModelScope.
             is NoteListEvents.OnDeleteNote -> {
                 viewModelScope.launch {
                     noteUseCases.deleteNotes(events.note)

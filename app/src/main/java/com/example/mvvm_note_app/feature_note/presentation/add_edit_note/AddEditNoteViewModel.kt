@@ -1,5 +1,6 @@
 package com.example.mvvm_note_app.feature_note.presentation.add_edit_note
 
+import UiEvent
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.toArgb
@@ -103,9 +104,5 @@ class AddEditNoteViewModel @Inject constructor(
                 }
             }
         }
-    }
-    sealed class UiEvent {
-        data class ShowSnackBar(val message: String): UiEvent()
-        object SaveNote: UiEvent()
     }
 }
