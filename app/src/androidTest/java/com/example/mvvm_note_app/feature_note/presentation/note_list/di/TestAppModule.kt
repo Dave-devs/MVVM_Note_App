@@ -1,4 +1,4 @@
-package com.example.mvvm_note_app.feature_note.di
+package com.example.mvvm_note_app.feature_note.presentation.note_list.di
 
 import android.app.Application
 import androidx.room.Room
@@ -15,15 +15,14 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object TestAppModule {
 
     @Provides
     @Singleton
     fun provideNoteDatabase(app: Application): NoteDatabase {
-        return Room.databaseBuilder(
+        return Room.inMemoryDatabaseBuilder(
             app,
-            NoteDatabase::class.java,
-            NOTE_DATABASE
+            NoteDatabase::class.java
         ).build()
     }
 

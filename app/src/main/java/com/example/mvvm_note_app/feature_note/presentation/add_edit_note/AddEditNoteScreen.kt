@@ -21,9 +21,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.semantics.SemanticsProperties.TestTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.mvvm_note_app.core.util.Constant.CONTENT_TEXT_FIELD
+import com.example.mvvm_note_app.core.util.Constant.TITLE_TEXT_FIELD
 import com.example.mvvm_note_app.feature_note.data.Note
 import com.example.mvvm_note_app.feature_note.presentation.add_edit_note.componenet.TransparentHintTextField
 import kotlinx.coroutines.flow.collectLatest
@@ -135,7 +138,8 @@ fun AddEditNoteScreen(
                 isHintVisible = titleState.isHintVisible,
                 singleLine = true,
                 maxLines = 1,
-                textStyle = MaterialTheme.typography.labelMedium
+                textStyle = MaterialTheme.typography.labelMedium,
+                testTag = TITLE_TEXT_FIELD
             )
             Spacer(modifier = Modifier.height(16.dp))
             TransparentHintTextField(
@@ -151,7 +155,8 @@ fun AddEditNoteScreen(
                 },
                 isHintVisible = contentState.isHintVisible,
                 maxLines = 10,
-                textStyle = MaterialTheme.typography.bodySmall
+                textStyle = MaterialTheme.typography.bodySmall,
+                testTag = CONTENT_TEXT_FIELD
             )
         }
     }

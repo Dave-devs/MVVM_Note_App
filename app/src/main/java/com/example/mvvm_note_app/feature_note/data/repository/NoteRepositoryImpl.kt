@@ -1,5 +1,7 @@
-package com.example.mvvm_note_app.feature_note.data
+package com.example.mvvm_note_app.feature_note.data.repository
 
+import com.example.mvvm_note_app.feature_note.data.Note
+import com.example.mvvm_note_app.feature_note.data.NoteDao
 import com.example.mvvm_note_app.feature_note.domain.NoteRepository
 import kotlinx.coroutines.flow.Flow
 

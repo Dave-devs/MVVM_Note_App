@@ -1,6 +1,5 @@
 package com.example.mvvm_note_app.feature_note.presentation.add_edit_note
 
-import UiEvent
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.toArgb
@@ -97,12 +96,17 @@ class AddEditNoteViewModel @Inject constructor(
                         )
                         _eventFlow.emit(UiEvent.SaveNote)
                     } catch (e: InvalidNoteException) {
-                        _eventFlow.emit(UiEvent.ShowSnackBar(
+                        _eventFlow.emit(
+                            UiEvent.ShowSnackBar(
                             message = e.message ?: "Unable to save note."
                         ))
                     }
                 }
             }
         }
+    }
+    sealed class UiEvent {
+        data class ShowSnackBar(val message: String): UiEvent()
+        object SaveNote: UiEvent()
     }
 }

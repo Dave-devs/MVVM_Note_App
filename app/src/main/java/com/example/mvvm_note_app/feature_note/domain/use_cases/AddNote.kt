@@ -7,7 +7,7 @@ import com.example.mvvm_note_app.feature_note.domain.NoteRepository
 class AddNote(private val noteRepository: NoteRepository) {
 
     @Throws(InvalidNoteException::class)
-    suspend  operator fun invoke(note: Note) {
+    suspend operator fun invoke(note: Note) {
         if (note.title.isBlank()) {
             throw InvalidNoteException("title can't be empty")
         }

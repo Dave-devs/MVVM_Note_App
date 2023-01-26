@@ -16,9 +16,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.mvvm_note_app.core.util.Constant
+import com.example.mvvm_note_app.core.util.Constant.ORDER_SECTION
 import com.example.mvvm_note_app.feature_note.domain.util.Routes
 import com.example.mvvm_note_app.feature_note.presentation.note_list.component.NoteItem
 import com.example.mvvm_note_app.feature_note.presentation.note_list.component.OrderSection
@@ -83,7 +86,8 @@ fun AddNoteScreen(
                 OrderSection(
                     modifier = Modifier
                         .fillMaxHeight()
-                        .padding(horizontal = 16.dp),
+                        .padding(horizontal = 16.dp)
+                        .testTag(ORDER_SECTION),
                     noteOrder = noteState.noteOrder,
                     onOrderChange = {
                         viewModel.onEvent(NoteListEvents.Order(it))
