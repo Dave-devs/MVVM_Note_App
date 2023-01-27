@@ -17,7 +17,7 @@ class GetNotesTest {
 
     @Before
     fun setUp() {
-        //new it needs our dao in
+        //now it needs our dao/database
         fakeNoteRepository = FakeNoteRepository()
         getNotes = GetNotes(fakeNoteRepository)
 
@@ -42,8 +42,8 @@ class GetNotesTest {
     }
 
 
-    //Naming convention is base on what the test do first and when it should return.
-    //Since it return a flow and nota list we run it in runBlocking function
+    //Naming convention is base on what the test do first and what it should return.
+    //Since it return a flow and not a list, we run it in runBlocking function
     @Test
     fun `Order notes by title ascending, correct order`() = runBlocking {
         //call note use_case we want to check from
