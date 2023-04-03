@@ -5,7 +5,6 @@ import com.example.mvvm_note_app.feature_note.domain.NoteRepository
 import com.example.mvvm_note_app.feature_note.domain.util.NoteOrder
 import com.example.mvvm_note_app.feature_note.domain.util.OrderType
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 class GetNotes(private val noteRepository: NoteRepository) {

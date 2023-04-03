@@ -20,7 +20,6 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.mvvm_note_app.core.util.Constant
 import com.example.mvvm_note_app.core.util.Constant.ORDER_SECTION
 import com.example.mvvm_note_app.feature_note.domain.util.Routes
 import com.example.mvvm_note_app.feature_note.presentation.note_list.component.NoteItem

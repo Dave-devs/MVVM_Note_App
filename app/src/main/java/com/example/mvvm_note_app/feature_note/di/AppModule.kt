@@ -7,6 +7,7 @@ import com.example.mvvm_note_app.feature_note.data.NoteDatabase
 import com.example.mvvm_note_app.feature_note.data.repository.NoteRepositoryImpl
 import com.example.mvvm_note_app.feature_note.domain.NoteRepository
 import com.example.mvvm_note_app.feature_note.domain.use_cases.*
+import com.example.mvvm_note_app.feature_note.model.use_cases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
